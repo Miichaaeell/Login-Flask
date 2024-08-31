@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/geral.css">
+    <link rel="stylesheet" href="../static/css/cadastro.css">
     <title>Cadastro</title>
 </head>
 <body>
@@ -17,17 +18,41 @@
     <main>
         <section id = cadastro>
             <form action="cadastrado" method="post" autocomplete="on">
-                <label for="inome">Nome: </label>
-                <input type="text" name="nome" id="inome" required placeholder="Nome Completo"> <br>
-                Sexo:
-                <input type="radio" name="sexo" id="isexom" required> <label for="isexom">Masculino</label>
-                <input type="radio" name="sexo" id="isexof" required> <label for="isexof">Feminino</label> <br>
-                <label for="isuer">Usuario: </label>
-                <input type="text" name="user" id="isuer" required placeholder="usuario para login"> <br>
-                <label for="isenha">Senha: </label>
-                <input type="password" name="senha" id="isenha" required placeholder="Senha de acesso"> <br>
-                <input type="submit" value="Enviar">
-                <input type="reset" value="Limpar">
+                <fieldset id="Dpessoal">
+                    <legend>Dados Pessoais</legend>
+                    <label for="inome">Nome: </label>
+                    <input type="text" name="nome" id="inome" required placeholder="Nome Completo" autocomplete="name"> <br>
+                    Sexo:
+                    <input type="radio" name="sexo" id="isexom" required> <label for="isexom">Masculino</label>
+                    <input type="radio" name="sexo" id="isexof" required> <label for="isexof">Feminino</label> <br>
+                    <label for="inascimento">Data de Nascimento: </label>
+                    <input type="date" name="nascimento" id="inascimento"  required="bday-day"> <br>
+                    <label for="iemail">E-mail: </label>
+                    <input type="email" name="email" id="iemail" required placeholder="seuemail@seuemail.com" autocomplete="email"> <br>
+                    <label for="itel">Telefone: </label>
+                    <input type="tel" name="tel" id="itel" placeholder="(xx) xxxxx-xxxx" required>
+
+                </fieldset>
+                <fieldset id="Dendereço">
+                    <legend>Endereço</legend>
+                    <label for="irua">Rua: </label>
+                    <input type="text" name="rua" id="irua" placeholder="R:">
+                    <label for="inumero">Nº: </label>
+                    <input type="text" name="numero" id="inumero" placeholder="Nº da residência" maxlength="5"> <br>
+                    <label for="ibairro">Bairro: </label>
+                    <input type="text" name="bairro" id="ibairro" placeholder="Bairro"> <br>
+                    <label for="icep">CEP: </label>
+                    <input type="text" name="cep" id="icep" placeholder="xxxxx-xxx">
+                </fieldset>
+                <fieldset id="Dlogin">
+                    <legend>Dados de Login</legend>
+                    <label for="isuer">Usuario: </label>
+                    <input type="text" name="user" id="isuer" required placeholder="usuario para login"> <br>
+                    <label for="isenha">Senha: </label>
+                    <input type="password" name="senha" id="isenha" required placeholder="Senha de acesso"> <br>
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Limpar">
+                </fieldset>
             </form>
         </section>
     </main>

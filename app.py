@@ -16,7 +16,7 @@ def cadastro():
 
 @app.route('/cadastrado', methods=['POST'])
 def cadastrado():
-    nome = request.form.get('user')
+    nome = request.form.get('nome')
     return render_template('cadastrado.html', nome = nome)
 @app.route('/painel', methods=['POST'])
 def meu_painel():

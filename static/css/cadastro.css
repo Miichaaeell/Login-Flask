@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+main {
+    background-color: none;
+    height: 90vh;
+    justify-content: center;
+}
+form {
+    background-color: white;
+    width: 90vw;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.49);
+}
+section#cadastro{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+
+}
+fieldset {
+    margin: 10px 5px;
+    padding: 4px;
+    
+}
+
+fieldset legend {
+    text-align: center;
+}
+fieldset > label, input {
+    margin-bottom: 10px;
+}
