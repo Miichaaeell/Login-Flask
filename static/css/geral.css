@@ -1,114 +1,51 @@
-
-@charset "utf-8";
+@charset "UTF-8";
 :root {
     --cor0:#49a09d;
     --cor1:#5f2c82;
 }
-
-
-* { margin: 0px;
-    padding: opx;
+* {
+    margin: 0px;
+    padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
-
 }
-
 body {
     background-color: var(--cor1);
+}
+header {
     display: flex;
-    width: 100vw;
-    height: 100vh;
-    flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin: 10px;
 }
-section#login {
-    display: flex;
-    flex-flow: column nowrap;
-    height: 625px;
-    width: 70vw;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: grey;
-
-}
-
-div#imagem {
-    background-image: url("../imagens/bg-mar.jpg");
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-    
-}
-div#formulario {
-    background-color: white;
-    height: 375px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-div#formulario h1, p {
-    margin-bottom: 10px;
-}
-div.campo {
-    margin-bottom: 10px;
-}
-
-div.campo  label {
-    display: none;
-}
-div.campo {
-    background-color: var(--cor1);
-    width: 60vw;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.322);
-    border-radius: 10px;
-    overflow: hidden;
-}
-div.campo span {
+header > div{
     color: white;
-    width: 30px;
-    font-size: 1.8em;
+}
+menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
     padding: 4px;
 }
 
-div.campo input {
-    background-color: var(--cor0);
-    border-radius: 10px;
-    
-    font-size: 1.5em;
-    width: calc(100% - 52px);
-    transform: translateY(-5px);
-}
-div.campo input:focus-within {
+main {
     background-color: white;
+    display: flex;
+    margin: 10px;
+    border-radius: 10px;
+
 }
 
-input[type="submit"] {
-    display: block;
-    cursor: pointer;
-    background-color: var(--cor0);
-    border-radius: 10px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.322);
-    height: 40px;
+section {
+    margin: 7px;
+}
+
+section h1 {
+    margin: 5px;
+    text-align: justify;
+    background-image: linear-gradient(to left, var(--cor0), var(--cor1));
+}
+section p {
+    text-align: justify;
+    text-indent: 20px;
     margin-bottom: 10px;
-    width: 100%;
-}
-input[type="submit"]:hover {
-    background-color: white;
-}
-
-div a {
-    display: block;
-    height: 40px;
-    color: black;
-    background-color: var(--cor0);
-    border-radius: 10px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.322);
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid black;
-}
-div a:hover {
-    background-color: white;
 }

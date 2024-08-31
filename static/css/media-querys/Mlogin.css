@@ -14,6 +14,9 @@ Grandes Telas: acima de 1200px
     body{
         background-image: linear-gradient(to right, var(--cor0), var(--cor1));
     }
+    main {
+        height: 90vh;
+    }
 
     section#login {
         flex-flow: row nowrap;
@@ -42,6 +45,9 @@ Grandes Telas: acima de 1200px
 @media screen and (min-width: 992px) {
     body{
         background-image: linear-gradient(to left, var(--cor0), var(--cor1));
+    }
+    main {
+        height: 90vh;
     }
 
     section#login {

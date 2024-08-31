@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/geral.css">
+    <title>Cadastro</title>
+</head>
+<body>
+<header>
+        <div><h1>Meu Site</h1></div>
+        <menu>
+            <a href="/">Início</a>
+            <a href="login">Entrar</a>
+            <a href="cadastro">Cadastre-se</a>
+        </menu>
+    </header>
+    <main>
+        <section id = cadastro>
+            <form action="cadastrado" method="post" autocomplete="on">
+                <label for="inome">Nome: </label>
+                <input type="text" name="nome" id="inome" required placeholder="Nome Completo"> <br>
+                Sexo:
+                <input type="radio" name="sexo" id="isexom" required> <label for="isexom">Masculino</label>
+                <input type="radio" name="sexo" id="isexof" required> <label for="isexof">Feminino</label> <br>
+                <label for="isuer">Usuario: </label>
+                <input type="text" name="user" id="isuer" required placeholder="usuario para login"> <br>
+                <label for="isenha">Senha: </label>
+                <input type="password" name="senha" id="isenha" required placeholder="Senha de acesso"> <br>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </form>
+        </section>
+    </main>
+</body>
+</html>
