@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+div#imagem {
+
+    background-image: url("../imagens/festa.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 80vh;
+    width: 80vw;
+}
