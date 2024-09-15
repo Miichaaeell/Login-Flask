@@ -1,20 +1,27 @@
 from flask import Flask, render_template, request, redirect
 from time import localtime
-from funcoesbd import Cliente, inserir, validar, logar, logado
+from funcoesbd import Cliente, inserir, logar, logado, deslogar,verificar_cadastro
 
 app = Flask(__name__)
 
+#Rotas Home
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=["GET", "POST"])
 def login():
-    return render_template('login.html')
-@app.route('/login_fail')
-def login_fail():
-    return render_template('login_fail.html')
-
+    metodo = request.method
+    if metodo == "GET":
+        return render_template('login.html')
+    else:
+        usuario = request.form.get('user')
+        senha = request.form.get('senha')
+        acesso = logar(usuario, senha)
+        if acesso == True:
+            return redirect(f'{usuario}')
+        else:
+            return render_template('login.html', status = "Usuario ou Senha Incorretos")
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
@@ -25,36 +32,49 @@ def cadastrado():
     dados = []
     for v in query:
         dados.append(v)
-    cliente = Cliente(dados[0], dados[1], dados[2], dados[3], dados[4], dados[5], dados[6], dados[7], dados[8], dados[9],  dados[10])
-    validacao = validar(cliente.usuario)
-    if validacao == False:
-        inserir(cliente)
+        
+    print(dados)
+    cliente = Cliente(dados[0], dados[1], dados[2], dados[3], dados[4], dados[5], dados[6], dados[7], dados[8], dados[9],  dados[10], 'deslogado')
+    cadastro = verificar_cadastro(cliente.usuario)
+    if cadastro == False:
+        #inserir(cliente)
         return render_template('cadastrado.html', nome = dados[0])
         
     else: 
         return redirect('cadastro')
 
+#Rotas Usuario
     
-@app.route('/painel', methods=['POST'])
-def meu_painel():
-    usuario = request.form.get('user')
-    senha = request.form.get('senha')
-    acesso = logar(usuario, senha)
-    if acesso == True:
-        horario = localtime()
-        hora = horario[3]
+@app.route('/<user>/painel')
+def painel(user):
+    dados_usuario = logado(user)
+    if dados_usuario.status == 'logado':
         saudação = ''
+        horario = localtime()
+        hora =  horario[3]
         if hora > 0 and hora < 12:
             saudação = 'Bom dia!'
-        elif hora > 12 and hora < 18:
+        elif hora >= 12 and hora < 18:
             saudação = 'Boa tarde'
         else:
             saudação = 'Boa noite'
-        dados_usuario = logado(usuario)
-        return render_template('painel.html', saudação = saudação, nome = dados_usuario[0])
+        
+        return render_template('painel.html', saudação = saudação, nome = dados_usuario.nome, user= dados_usuario.usuario, sexo = dados_usuario.sexo, nascimento = dados_usuario.data_nascimento, email = dados_usuario.email, telefone = dados_usuario.telefone, rua = dados_usuario.rua, numero_casa = dados_usuario.numero_casa, bairro=dados_usuario.bairro, CEP = dados_usuario.cep)
     else:
+        return redirect('/login')
 
-        return redirect('login_fail')
+@app.route('/<user>')
+def index_usuario(user):
+    dados_usuario = logado(user)
+    if dados_usuario.status == 'logado':
+        return render_template('index_user.html', user = dados_usuario.usuario)
+    else:
+        return redirect('/login')
+
+@app.route('/logout/<usuario>')
+def logout(usuario):
+    deslogar(usuario)
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)

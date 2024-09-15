@@ -25,10 +25,10 @@
                 <div id="formulario">
                     <h1>Login</h1>
                     <p>Seja Bem-vindo(a)</p>
-                    <form action="painel" method="post" autocomplete="on">
+                    <form action="login" method="post" autocomplete="on">
                         <div class="campo">
                             <span class="material-symbols-outlined">person</span>
-                            <input type="text" name="user" id="iuser" required placeholder="Usuario" autocomplete="username">
+                            <input type="text" name="user" id="iuser" required placeholder="Usuario" autocomplete="username" autofocus>
                             <label for="iuser">Usúario:</label> <br>
                         </div>
                         <div class="campo">
@@ -36,6 +36,7 @@
                             <input type="password" name="senha" id="isenha" required placeholder="Senha" autocomplete="current-password">
                             <label for="isenha">Senha:</label><br>
                         </div>
+                        <div id="status">{{status}}</div>
                         <input type="submit" value="Enviar">
                         <a href="#">Esqueci a Senha
                         <span class="material-symbols-outlined"> mail</span>

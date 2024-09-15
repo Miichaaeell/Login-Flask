@@ -2,12 +2,11 @@
 
 main {
     background-color: none;
-    height: 90vh;
     justify-content: center;
+    align-items: center;
 }
 form {
     background-color: white;
-    height: 80%;
     width: 90vw;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.49);
@@ -15,6 +14,15 @@ form {
     flex-flow: column nowrap;
     justify-content: space-evenly;
     font-size: 1.3em;
+}
+form > p {
+    margin-left: 10px;
+}
+input.btn{
+    width: 100px;
+    height: 30px;
+    margin-right: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 section#cadastro{
     display: flex;
@@ -37,3 +45,4 @@ fieldset > label, input {
 input#inumero {
     width: 40px;
 }
+
