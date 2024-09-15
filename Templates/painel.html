@@ -21,14 +21,20 @@
     </header>
     <main>
         <div id="saudação">
-            <h1>{{saudação}} {{ nome }}, Seja Bem Vindo</h1>
+            <div>
+                <h1>{{saudação}} {{ nome }}, Seja Bem Vindo</h1>
+                <p><a href="/{{user}}/alterar_dados"><input type="button" value="Editar dados" id="editar" class="alterar"></a></p>
+                <p><a href="/{{user}}/alterar_senha"><input type="button" value="Alterar Senha" id="alterar_senha" class="alterar"></a></p>
+            </div>
+                <a href="/{{user}}/delete"><input type="button" value="Exlcluir conta" id="excluir" onclick="confrma()"></a>
+            
         </div>
 
         <div id="tabela">
             <table>
                 <thead>
                     <tr>
-                        <th>Dados Cadastrais</th>
+                        <th class="destaque">Dados Cadastrais</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,5 +73,9 @@
 
         
     </main>
+    <script>
+        function confrma(){
+            alert('Sua conta foi deletada')}
+    </script>
 </body>
 </html>

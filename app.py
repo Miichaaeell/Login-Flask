@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from time import localtime
-from funcoesbd import Cliente, inserir, logar, logado, deslogar,verificar_cadastro
+from funcoesbd import Cliente, inserir, logar, logado, deslogar,verificar_cadastro, exlcluir
 
 app = Flask(__name__)
 
@@ -37,7 +37,7 @@ def cadastrado():
     cliente = Cliente(dados[0], dados[1], dados[2], dados[3], dados[4], dados[5], dados[6], dados[7], dados[8], dados[9],  dados[10], 'deslogado')
     cadastro = verificar_cadastro(cliente.usuario)
     if cadastro == False:
-        #inserir(cliente)
+        inserir(cliente)
         return render_template('cadastrado.html', nome = dados[0])
         
     else: 
@@ -75,6 +75,20 @@ def index_usuario(user):
 def logout(usuario):
     deslogar(usuario)
     return redirect('/')
+
+@app.route('/<usuario>/delete')
+def delete(usuario):
+    exlcluir(usuario)
+    return redirect('/')
+
+@app.route('/<usuario>/alterar_senha')
+def alterar_senha(usuario):
+    return "alterar senha em construção"
+
+@app.route('/<usuario>/alterar_dados')
+def alterar_dados(usuario):
+    return "alterar dados em construção"
+
 
 if __name__ == '__main__':
     app.run(debug=True)

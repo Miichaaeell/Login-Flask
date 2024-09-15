@@ -52,24 +52,40 @@
 
                 <fieldset id="Dendereço">
                     <legend>Endereço</legend>
+
                     <label for="irua">Rua: </label>
                     <input type="text" name="rua" id="irua" placeholder="R:" required autocomplete="street-address">
+
                     <label for="inumero">Nº: </label>
-                    <input type="text" name="numero" id="inumero" placeholder="Nº da residência" maxlength="5" required > <br>
+                    <input type="number" name="numero" id="inumero" placeholder="Nº" required > <br>
+
                     <label for="ibairro">Bairro: </label>
                     <input type="text" name="bairro" id="ibairro" placeholder="Bairro" required autocomplete="address-level1"> <br>
+
                     <label for="icep">CEP: </label>
                     <input type="text" name="cep" id="icep" placeholder="xxxxx-xxx" autocomplete="postal-code" required>
+
                 </fieldset>
 
                 <fieldset id="Dlogin">
                     <legend>Dados de Login</legend>
+
                     <label for="isuer">Usuario: </label>
                     <input type="text" name="user" id="isuer" required placeholder="usuario para login" autocomplete="username"> <br>
+
                     <label for="isenha">Senha: </label>
-                    <input type="password" name="senha" id="isenha" required placeholder="Senha de acesso" autocomplete="new-password" onchange="validar()" ><span class="material-symbols-outlined" id="imostrar"> visibility </span><br>
+                    <input type="password" name="senha" id="isenha" required placeholder="Senha de acesso" autocomplete="new-password" onchange="confirmar_senha()">
+                    <div class="ver"><span class="material-symbols-outlined" id="imostrar" onclick="mostrar()"> visibility </span></div>
+                    <div class="esconder"><span class="material-symbols-outlined" id="imostrar"> visibility_off </span></div><br>
+
                     <label for="iconfirmpass">Confirme a Senha: </label>
-                    <input type="password" name="confirmpass" id="iconfirmpass" required placeholder="Confirme a Senha" autocomplete="new-password" onchange="validar()"><span class="material-symbols-outlined" id="imostrar2"> visibility </span> <br>
+                    <input type="password" name="confirmpass" id="iconfirmpass" required placeholder="Confirme a Senha" autocomplete="new-password" onchange="confirmar_senha()">
+                    <div class="ver">
+                        <span class="material-symbols-outlined" id="imostrar2" onclick="mostrar1()"> visibility </span>
+                    </div>
+                    <div class="esconder">
+                        <span class="material-symbols-outlined" id="imostrar2"> visibility_off </span>
+                    </div>
                 </fieldset>
                 <p>
                     <input type="submit" value="Enviar" class="btn">
@@ -81,24 +97,6 @@
         </section>
 
     </main>
-    <script>
-        function validar(){
-            let senha = document.getElementById('isenha')
-            let conf_senha = document.getElementById('iconfirmpass')
-            if (senha != conf_senha){
-                alert("As senhas não conferem")
-            }
-        }
-        let senha =  document.getElementById('isenha')
-        let conf_senha = document.getElementById('iconfirmpass')
-        let mostra = document.getElementById('imostrar')
-        let mostra2 = document.getElementById('imostrar2')
-        mostra.addEventListener('click', function(){
-            senha.type = senha.type == 'text' ? 'password' : 'text'
-        })
-        mostra2.addEventListener('click', function(){
-            conf_senha.type = conf_senha.type == 'text' ? 'password' : 'text'
-        })
-    </script>
+    <script src="/static/js/cadastro.js"></script>
 </body>
 </html>
