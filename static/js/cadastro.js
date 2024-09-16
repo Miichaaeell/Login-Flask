@@ -1,10 +1,11 @@
+let senha =  document.getElementById('isenha')
+let conf_senha = document.getElementById('iconfirmpass')
+
 // mostrar ou esconder a senha no formulário
 function mostrar(){
-    let senha =  document.getElementById('isenha')
     senha.type = senha.type == 'text' ? 'password' : 'text'
 }
 function mostrar1(){
-    let conf_senha = document.getElementById('iconfirmpass')
     conf_senha.type = conf_senha.type == 'text' ? 'password' : 'text'
 }
 

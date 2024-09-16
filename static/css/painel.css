@@ -67,3 +67,6 @@ input#excluir:hover{
     transition: 0.2s;
 
 }
+div#usuario {
+    display: none;
+}

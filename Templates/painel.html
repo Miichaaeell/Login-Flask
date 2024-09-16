@@ -23,10 +23,11 @@
         <div id="saudação">
             <div>
                 <h1>{{saudação}} {{ nome }}, Seja Bem Vindo</h1>
-                <p><a href="/{{user}}/alterar_dados"><input type="button" value="Editar dados" id="editar" class="alterar"></a></p>
-                <p><a href="/{{user}}/alterar_senha"><input type="button" value="Alterar Senha" id="alterar_senha" class="alterar"></a></p>
+                <p><input type="button" value="Editar dados" id="editar" class="alterar" onclick="alterar_dados()"></p>
+                <input type="button" value="Alterar Senha" id="alterar_senha" class="alterar" onclick="alterar_senha()">
             </div>
-                <a href="/{{user}}/delete"><input type="button" value="Exlcluir conta" id="excluir" onclick="confrma()"></a>
+                <input type="button" value="Exlcluir conta" id="excluir" onclick="confirma()">
+                
             
         </div>
 
@@ -69,13 +70,10 @@
                 </tbody>
             </table>
         </div>
-
+        <div id="usuario">{{user}}</div> <!-- usado para pegar usuario e fazer o direcionamento das paginas-->
 
         
     </main>
-    <script>
-        function confrma(){
-            alert('Sua conta foi deletada')}
-    </script>
+    <script src="/static/js/painel.js"></script>
 </body>
 </html>
