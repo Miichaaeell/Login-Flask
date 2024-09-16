@@ -36,9 +36,10 @@
                             <input type="password" name="senha" id="isenha" required placeholder="Senha" autocomplete="current-password">
                             <label for="isenha">Senha:</label><br>
                         </div>
+                        <span class="material-symbols-outlined" onclick="mostrar()" id="mostrar"> visibility </span>
                         <div id="status">{{status}}</div>
                         <input type="submit" value="Enviar">
-                        <a href="#">Esqueci a Senha
+                        <a href="recuperar_senha">Esqueci a Senha
                         <span class="material-symbols-outlined"> mail</span>
                     </a>
             
@@ -46,5 +47,6 @@
                 </div>
             </section>
         </main>
+        <script src="/static/js/login.js"></script>
 </body>
 </html>

@@ -39,6 +39,12 @@ Grandes Telas: acima de 1200px
         width: 40vw;
     }
 
+    span#mostrar {
+        display: inline-flex;
+        transform: translate(36vw, -42px);
+        cursor: pointer;
+    }
+
 }
 
 /*Telas Grandes*/
@@ -68,6 +74,11 @@ Grandes Telas: acima de 1200px
     }
     div.campo {
         width: 50vw;
+    }
+    span#mostrar {
+        display: inline-flex;
+        transform: translate(47vw, -42px );
+        cursor: pointer;
     }
 
 }

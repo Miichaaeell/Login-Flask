@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/geral.css">
+    <link rel="stylesheet" href="/static/css/media-querys/Mgeral.css">
+    <title>Recuperar Senha</title>
+</head>
+<body>
+    <header>
+        <div><h1>Meu Site</h1></div>
+        <menu>
+            <a href="/">Início</a>
+            <a href="login">Entrar</a>
+            <a href="cadastro">Cadastre-se</a>
+        </menu>
+    </header>
+    <main>
+        <section>
+            <form action="/" method="post" autocomplete="on">
+                <p>
+                    <label for="isenha">Nova Senha:</label>
+                    <input type="password" name="senha" id="isenha">
+                </p>
+                <p></p>
+                    <label for="isenha">Confirmar Senha:</label>
+                    <input type="password" name="conf_senha" id="iconf_senha">
+                </p>
+                <P>
+                    <input type="text" name="user" id="iuser" value="{{user}}" hidden>
+                </P>
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </main>
+</body>
+</html>

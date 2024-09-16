@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/geral.css">
+    <link rel="stylesheet" href="/static/css/media-querys/Mgeral.css">
+    <title>Recuperar Senha</title>
+</head>
+<body>
+    <header>
+        <div><h1>Meu Site</h1></div>
+        <menu>
+            <a href="/">Início</a>
+            <a href="login">Entrar</a>
+            <a href="cadastro">Cadastre-se</a>
+        </menu>
+    </header>
+    <main>
+        <section>
+            <form action="recuperar_senha2" method="post" autocomplete="on">
+                <label for="iusuario">Usuario:</label>
+                <input type="text" name="usuario" id="iusuario" required autocomplete="username">
+                <input type="submit" value="Enviar">
+
+            </form>
+            <p id="error">{{msg}}</p>
+        </section>
+    </main>
+</body>
+</html>

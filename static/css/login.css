@@ -35,7 +35,7 @@ menu a {
 
 main {
     display: flex;
-    height: 93vh;
+    height: 90vh;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@ main {
 section#login {
     display: flex;
     flex-flow: column nowrap;
-    height: 625px;
+    height: 100%;
     width: 70vw;
     border-radius: 20px;
     overflow: hidden;
@@ -136,4 +136,9 @@ div a {
 }
 div a:hover {
     background-color: white;
+}
+span#mostrar {
+    display: inline-flex;
+    transform: translate(53vw, -42px );
+    cursor: pointer;
 }

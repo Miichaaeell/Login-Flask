@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/geral.css">
+    <link rel="stylesheet" href="/static/css/media-querys/Mgeral.css">
+    <link rel="stylesheet" href="/static/css/alterar_senha.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Alteração de senha</title>
+</head>
+<body>
+    <header>
+        <div><h1>Meu Site</h1></div>
+        <menu>
+            <a href="/{{user}}">Início</a>
+            <a href="/{{user}}/painel"> <span class="material-symbols-outlined">person</span> {{user}}</a>
+            <a href="/logout/{{user}}">Log out</a>
+        </menu>
+    </header>
+    <main>
+        <form action="/{{user}}" method="post" autocomplete="on">
+            <p>
+                <label for="inova_senha">Nova Senha:</label>
+                <input type="password" name="nova_senha" id="inova_senha" required onchange="validar()" autocomplete="new-password">
+                <span class="material-symbols-outlined" id="imostrar" onclick="mostrar()"> visibility </span>
+            </p>
+            <p>
+                <label for="iconfirmar_senha">Confirmar Senha:</label>
+                <input type="password" name="confirmar_senha" id="iconfirmar_senha" required onchange="validar()" autocomplete="new-password">
+               <span class="material-symbols-outlined" id="imostrar" onclick="mostrar2()"> visibility </span>
+            </p>
+            <p>
+                <input type="submit" value="Enviar"  class="button">
+                <input type="button" value="Cancelar"   class="button" onclick="cancelar()">
+            </p>
+        </form>
+    </main>
+    <script src="/static/js/alterar_senha.js"></script>
+</body>
+</html>
