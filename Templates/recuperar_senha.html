@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/geral.css">
+    <link rel="stylesheet" href="/static/css/recuperar_senha.css">
     <link rel="stylesheet" href="/static/css/media-querys/Mgeral.css">
     <title>Recuperar Senha</title>
 </head>
@@ -19,12 +20,14 @@
     <main>
         <section>
             <form action="recuperar_senha2" method="post" autocomplete="on">
-                <label for="iusuario">Usuario:</label>
-                <input type="text" name="usuario" id="iusuario" required autocomplete="username">
-                <input type="submit" value="Enviar">
-
+                <p>
+                    <label for="iusuario">Usuario:</label>
+                    <input type="text" name="usuario" id="iusuario" required autocomplete="username">
+                </p>
+                <p><input type="submit" value="Enviar"></p>
+                <p id="error">{{msg}}</p>
             </form>
-            <p id="error">{{msg}}</p>
+            
         </section>
     </main>
 </body>
