@@ -71,3 +71,11 @@ def alterar_dados(usuario):
         return render_template('alterar_dados.html', user= usuario.usuario, nome = usuario.nome, nascimento = usuario.data_nascimento, email = usuario.email, telefone= usuario.telefone, rua = usuario.rua, numero = usuario.numero_casa, bairro = usuario.bairro, cep = usuario.cep )
     else:
         return redirect('/')
+    
+@app.route('/<usuario>/galeria')
+def galeria(usuario):
+    user = dados_usuario(usuario)
+    if user.status == 'logado':
+        return render_template('galeria.html', user =  usuario)
+    else:
+        return redirect('/')

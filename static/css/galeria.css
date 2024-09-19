@@ -1,0 +1,82 @@
+@charset "utf-8";
+:root {
+    --cor0:#49a09d;
+    --cor1:#5f2c82;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: var(--cor1);
+}
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+header > div{
+    color: white;
+}
+menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 4px;
+}
+menu a:hover {
+    color: black;
+    text-decoration: underline;
+    transition: 0.4s;
+}
+menu  span {
+    transform: translateY(6px);
+}
+main {
+    margin: 0px;
+    display: flex;
+    flex-flow: column;    
+}
+section.flex {
+    display: flex;
+    flex-flow: column ;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.233);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.imagens {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+.imagens > div > img {
+    width: 250px;
+    padding: 10px;
+}
+
+section.grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.233);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+
+}
+
+.grid > div > img {
+    width: 250px;
+    padding: 10px;
+}
+.titulo {
+    text-align: center;
+}
