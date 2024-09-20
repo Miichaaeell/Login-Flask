@@ -8,10 +8,11 @@ def index():
     metodo = request.method
     if metodo == "GET":
         return render_template('index.html')
-    else:
+    elif metodo == "POST":
+        usuario = session.query(Usuario).filter_by(Usuario = user).first()
         user = request.form.get('user')
         senha = request.form.get('senha')
-        usuario = session.query(Usuario).filter_by(Usuario = user).first()
+
         usuario.Senha = senha
         session.add(usuario)
         session.commit()
