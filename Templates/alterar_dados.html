@@ -32,8 +32,13 @@
                     <p>
                         <label for="isexo">Sexo:</label>
                         <select name="sexo" id="isexo" autocomplete="sex" >
-                            <option value="Masculino" >Masculino</option>
-                            <option value="Feminino" >Feminino</option>
+                            <optgroup label="Selecionado">
+                                <option value="{{sexo}}">{{sexo}}</option>
+                            </optgroup>
+                            <optgroup label="Sexo">
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino" >Feminino</option>
+                            </optgroup>
                         </select>
                     </p>
                     <p>

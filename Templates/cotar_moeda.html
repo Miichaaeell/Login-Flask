@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5">
+    <link rel="shortcut icon" href="../static/imagens/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/geral.css">
+    <link rel="stylesheet" href="/static/css/media-querys/Mgeral.css">
+    <link rel="stylesheet" href="/static/css/cotação.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Cotação de Moeda</title>
+</head>
+<body>
+    <header>
+        <div><h1>Meu Site</h1></div>
+        <menu>
+            <a href="/{{user}}">Início</a>
+            <a href="/{{user}}/cotar_moeda">Cotação da moeda</a>
+            <a href="/{{user}}/galeria">Galeria</a>
+            <a href="/{{user}}/painel"> <span class="material-symbols-outlined">person</span> {{user}}</a>
+            <a href="/logout/{{user}}">Log out</a>
+        </menu>
+    </header>
+    <main>
+
+        <div class="moedas" id="dolar">
+            <p class="legenda">Cotação do Dolar</p>
+            <p class="valor">
+                <output>R$ {{dolar}}</output>
+            </p>
+        </div>
+
+        <div class="moedas" id="euro">
+            <p class="legenda">Cotação do Euro</p>
+            <p class="valor">
+                <output>R$ {{euro}}</output>
+            </p>
+        </div>
+
+        <div class="moedas" id="bitcoin">
+            <p class="legenda">Cotação do BitCoin</p>
+            <p class="valor">
+                <output>R$ {{bitcoin}}</output>
+            </p>
+        </div>
+
+    </main>
+    
+</body>
+</html>

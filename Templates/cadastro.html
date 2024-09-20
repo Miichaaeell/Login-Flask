@@ -32,7 +32,7 @@
                     <p>
                         <label for="isexo">Sexo:</label>
                         <select name="sexo" id="isexo" autocomplete="sex" >
-                            <option value="Masculino">Masculino</option>
+                            <option value="Masculino" selected>Masculino</option>
                             <option value="Feminino">Feminino</option>
                         </select>
                     </p>                    
@@ -71,15 +71,16 @@
                     <legend>Dados de Login</legend>
 
                     <label for="isuer">Usuario: </label>
-                    <input type="text" name="user" id="isuer" required placeholder="usuario para login" autocomplete="username"> {{erro}} <br>
+                    <input type="text" name="user" id="isuer" required placeholder="usuario para login" autocomplete="username"> <br>
+                    <p class="aviso">{{erro}}</p>
 
                     <label for="isenha">Senha: </label>
-                    <input type="password" name="senha" id="isenha" required placeholder="Senha de acesso" autocomplete="new-password" onchange="confirmar_senha()">
+                    <input type="password" name="senha" id="isenha" required placeholder="Senha de acesso" autocomplete="new-password" onchange="confirmar_senha()" minlength="6">
                     <div class="ver"><span class="material-symbols-outlined" id="imostrar" onclick="mostrar()"> visibility </span></div>
                     <div class="esconder"><span class="material-symbols-outlined" id="imostrar"> visibility_off </span></div><br>
 
                     <label for="iconfirmpass">Confirme a Senha: </label>
-                    <input type="password" name="confirmpass" id="iconfirmpass" required placeholder="Confirme a Senha" autocomplete="new-password" onchange="confirmar_senha()">
+                    <input type="password" name="confirmpass" id="iconfirmpass" required placeholder="Confirme a Senha" autocomplete="new-password" onchange="confirmar_senha()" minlength="6">
                     <div class="ver">
                         <span class="material-symbols-outlined" id="imostrar2" onclick="mostrar1()"> visibility </span>
                     </div>

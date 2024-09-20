@@ -57,9 +57,11 @@ input.alterar:hover {
 }
 
 input#excluir {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.582);
     justify-self: flex-end;
     font-weight: bolder;
+    color: black;
+    padding: 6px;
 }
 
 input#excluir:hover{

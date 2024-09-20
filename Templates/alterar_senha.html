@@ -23,12 +23,12 @@
         <form action="/{{user}}" method="post" autocomplete="on">
             <p>
                 <label for="inova_senha">Nova Senha:</label>
-                <input type="password" name="nova_senha" id="inova_senha" required onchange="validar()" autocomplete="new-password">
+                <input type="password" name="nova_senha" id="inova_senha" required onchange="validar()" autocomplete="new-password" minlength="6">
                 <span class="material-symbols-outlined" id="imostrar" onclick="mostrar()"> visibility </span>
             </p>
             <p>
                 <label for="iconfirmar_senha">Confirmar Senha:</label>
-                <input type="password" name="confirmar_senha" id="iconfirmar_senha" required onchange="validar()" autocomplete="new-password">
+                <input type="password" name="confirmar_senha" id="iconfirmar_senha" required onchange="validar()" autocomplete="new-password" minlength="6">
                <span class="material-symbols-outlined" id="imostrar" onclick="mostrar2()"> visibility </span>
             </p>
             <p>
