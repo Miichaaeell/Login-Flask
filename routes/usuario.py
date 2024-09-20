@@ -33,14 +33,14 @@ def painel(user):
 
 @app.route('/<user>', methods=['GET', 'POST'])
 def index_usuario(user):
-
-    usuario = session.query(Usuario).filter_by(Usuario = user).first()
     if request.method == 'GET':
+        usuario = session.query(Usuario).filter_by(Usuario = user).first()
         if usuario.Status == 'logado':
             return render_template('index_user.html', user = usuario.Usuario)
         else:
             return redirect('/login')
     else:
+        usuario = session.query(Usuario).filter_by(Usuario = user).first()
         senha  = request.form.get('nova_senha')
         usuario.Senha = senha
         session.add(usuario)
