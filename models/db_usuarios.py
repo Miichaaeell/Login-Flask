@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker, declarative_base
 from os import getenv
 banco = getenv('MEU_BANCO')
-db = create_engine('postgresql://michael:6LuhtVnvY8ATwPh5sClBdVTQRVkScGIK@dpg-crmh8gtumphs739e9k20-a.oregon-postgres.render.com/usuarios_q1cr')
+db = create_engine(banco)
 Session = sessionmaker(bind=db)
 session = Session()
 Base = declarative_base()
