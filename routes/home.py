@@ -7,7 +7,7 @@ from flask import render_template, request, redirect
 def index():
     metodo = request.method
     if metodo == "GET":
-        return render_template('Templates/index.html')
+        return render_template('index.html')
     elif metodo == "POST":
         usuario = session.query(Usuario).filter_by(Usuario = user).first()
         user = request.form.get('user')
