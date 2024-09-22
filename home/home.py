@@ -1,9 +1,8 @@
-from main import app
+from flask import render_template, request, redirect, Blueprint
 from models.db_usuarios import session, analisar_formulario, Usuario
-from flask import render_template, request, redirect
 
-
-@app.route('/', methods=["GET", "POST"])
+home = Blueprint('home', __name__,template_folder='templates')
+@home.route('/', methods=["GET", "POST"])
 def index():
     metodo = request.method
     if metodo == "GET":
@@ -20,7 +19,7 @@ def index():
 
 
 
-@app.route('/login', methods=["GET", "POST"])
+@home.route('/login', methods=["GET", "POST"])
 def login():
     metodo = request.method
     if metodo == "GET":
@@ -39,7 +38,7 @@ def login():
             session.commit()
             return redirect(f'{usuario.Usuario}')
 
-@app.route('/cadastro',  methods=["GET", 'POST'])
+@home.route('/cadastro',  methods=["GET", 'POST'])
 def cadastro():
     metodo = request.method
     if metodo == "GET":
@@ -47,7 +46,7 @@ def cadastro():
     else:
         return render_template('cadastro.html', erro ='Usuário já cadastrado')
 
-@app.route('/cadastrado', methods=['POST'])
+@home.route('/cadastrado', methods=['POST'])
 def cadastrado():
     formulario = request.form.values()
     user = analisar_formulario(formulario)
@@ -60,11 +59,11 @@ def cadastrado():
     else: 
         return redirect('cadastro', code=307)
 
-@app.route('/recuperar_senha')
+@home.route('/recuperar_senha')
 def recuperar_senha():
     return render_template('recuperar_senha.html')
 
-@app.route('/recuperar_senha2', methods=['POST'])
+@home.route('/recuperar_senha2', methods=['POST'])
 def recuperar_senha2():
     user = request.form.get('usuario')
     usuario = session.query(Usuario).filter_by(Usuario = user).first()

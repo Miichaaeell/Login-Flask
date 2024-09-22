@@ -1,12 +1,11 @@
-from main import app
-import requests
+from flask import render_template, request, redirect, Blueprint
 from models.db_usuarios import session, Usuario, receber_formulario
-from flask import render_template, request, redirect
+import requests
 from time import localtime
 
-
+usuarios = Blueprint('usuario', __name__, template_folder='templates', static_folder='static')
     
-@app.route('/<user>/painel', methods=['GET', 'POST'])
+@usuarios.route('/<user>/painel', methods=['GET', 'POST'])
 def painel(user):
     usuario = session.query(Usuario).filter_by(Usuario = user).first()
     saudação = ''
@@ -31,7 +30,7 @@ def painel(user):
         session.commit()
         return render_template('painel.html', saudação = saudação, nome = usuario.Nome, user= usuario.Usuario, sexo = usuario.Sexo, nascimento = usuario.Data_Nascimento, email = usuario.Email, telefone = usuario.Telefone, rua = usuario.Rua, numero_casa = usuario.Numero_casa, bairro=usuario.Bairro, CEP = usuario.CEP)
 
-@app.route('/<user>', methods=['GET', 'POST'])
+@usuarios.route('/<user>', methods=['GET', 'POST'])
 def index_usuario(user):
     metodo = request.method
     usuario = session.query(Usuario).filter_by(Usuario = user).first()
@@ -47,7 +46,7 @@ def index_usuario(user):
         session.commit()
         return redirect('/login')
 
-@app.route('/logout/<user>')
+@usuarios.route('/logout/<user>')
 def logout(user):
     usuario = session.query(Usuario).filter_by(Usuario = user).first()
     usuario.Status = "Deslogado"
@@ -55,7 +54,7 @@ def logout(user):
     session.commit()
     return redirect('/')
 
-@app.route('/<user>/delete')
+@usuarios.route('/<user>/delete')
 def delete(user):
     usuario = session.query(Usuario).filter_by(Usuario = user).first()
     if usuario.Status == "logado":
@@ -63,7 +62,7 @@ def delete(user):
         session.commit()
     return redirect('/')
 
-@app.route('/<user>/alterar_senha')
+@usuarios.route('/<user>/alterar_senha')
 def alterar_senha(user):
     usuario = session.query(Usuario).filter_by(Usuario = user).first()
     if usuario.Status == "logado":
@@ -71,7 +70,7 @@ def alterar_senha(user):
     else:
         return redirect('/')
 
-@app.route('/<user>/alterar_dados')
+@usuarios.route('/<user>/alterar_dados')
 def alterar_dados(user):
     usuario = session.query(Usuario).filter_by(Usuario = user).first()
     if usuario.Status == "logado":
@@ -79,7 +78,7 @@ def alterar_dados(user):
     else:
         return redirect('/')
     
-@app.route('/<user>/galeria')
+@usuarios.route('/<user>/galeria')
 def galeria(user):
     usuario = session.query(Usuario).filter_by(Usuario = user).first()
     if usuario.Status == 'logado':
@@ -87,7 +86,7 @@ def galeria(user):
     else:
         return redirect('/')
     
-@app.route('/<user>/cotar_moeda')
+@usuarios.route('/<user>/cotar_moeda')
 def cotar_moeda(user):
     requisição = requests.get(f'https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL')
     retorno = requisição.json() 
